@@ -80,21 +80,17 @@ internal class Sphere(depth: Int, radius: Float) {
 		var azimuth: Double
 		val texture: MutableList<FloatArray> = ArrayList()
 		for (stripNum in 0 until totalNumStrips) {
-			// Setup arrays to hold the points for this strip.
 			val vertices = FloatArray(numVerticesPerStrip * 3)
 			val texturePoints = FloatArray(numVerticesPerStrip * 2)
 			var vertexPos = 0
 			var texturePos = 0
 
-			// Calculate position of the first vertex in this strip.
 			altitude = NINETY_DEGREES
 			azimuth = stripNum * azimuthStepAngle
 
-			// Draw the rest of this strip.
 			var vertexNum = 0
 			while (vertexNum < numVerticesPerStrip) {
 
-				// First point - Vertex.
 				y = radius * sin(altitude)
 				h = radius * cos(altitude)
 				z = h * sin(azimuth)
@@ -103,11 +99,9 @@ internal class Sphere(depth: Int, radius: Float) {
 				vertices[vertexPos++] = y.toFloat()
 				vertices[vertexPos++] = z.toFloat()
 
-				// First point - Texture.
 				texturePoints[texturePos++] = (1 - azimuth / THREE_SIXTY_DEGREES).toFloat()
 				texturePoints[texturePos++] = (1 - (altitude + NINETY_DEGREES) / ONE_EIGHTY_DEGREES).toFloat()
 
-				// Second point - Vertex.
 				altitude -= altitudeStepAngle
 				azimuth -= azimuthStepAngle / 2.0
 				y = radius * sin(altitude)
@@ -118,7 +112,6 @@ internal class Sphere(depth: Int, radius: Float) {
 				vertices[vertexPos++] = y.toFloat()
 				vertices[vertexPos++] = z.toFloat()
 
-				// Second point - Texture.
 				texturePoints[texturePos++] = (1 - azimuth / THREE_SIXTY_DEGREES).toFloat()
 				texturePoints[texturePos++] = (1 - (altitude + NINETY_DEGREES) / ONE_EIGHTY_DEGREES).toFloat()
 				azimuth += azimuthStepAngle
@@ -133,7 +126,6 @@ internal class Sphere(depth: Int, radius: Float) {
 			fb.position(0)
 			vertexBuffer.add(fb)
 
-			// Setup texture.
 			byteBuffer = ByteBuffer.allocateDirect(numVerticesPerStrip * 2 * java.lang.Float.SIZE)
 			byteBuffer.order(ByteOrder.nativeOrder())
 			fb = byteBuffer.asFloatBuffer()

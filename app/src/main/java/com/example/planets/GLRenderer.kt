@@ -40,8 +40,8 @@ internal class GLRenderer(private val context: Context) : GLSurfaceView.Renderer
 		gl.glRotatef(p2, 0f, 1f, 0f)
 		gl.glTranslatef(4.5f, 0.0f, 0.0f)
 		mEarth.draw(gl)
-		p3 = if (p3 > 360) 0f else p3 + 2f
-		gl.glRotatef(p3, 0f, 2f, 1f)
+		p3 = if (p3 > 360) 0f else p3 + 0.5f
+		gl.glRotatef(p3, 0f, 3f, 2f)
 		gl.glScalef(0.5f, 0.5f, 0.5f)
 		gl.glTranslatef(2.0f, -1.5f, 2.0f)
 		mMoon.draw(gl)
@@ -57,9 +57,9 @@ internal class GLRenderer(private val context: Context) : GLSurfaceView.Renderer
 	}
 
 	override fun onSurfaceCreated(gl: GL10, config: EGLConfig?) {
-		mSun.loadGLTexture(gl, context, R.drawable.shrek)
+		mSun.loadGLTexture(gl, context, R.drawable.shrek2)
 		mEarth.loadGLTexture(gl, context, R.drawable.osel)
-		mMoon.loadGLTexture(gl, context, R.drawable.kot)
+		mMoon.loadGLTexture(gl, context, R.drawable.kot2)
 		gl.glEnable(GL10.GL_TEXTURE_2D)
 		gl.glShadeModel(GL10.GL_SMOOTH)
 		gl.glClearColor(CLEAR_RED, CLEAR_GREEN, CLEAR_BLUE, CLEAR_ALPHA)
