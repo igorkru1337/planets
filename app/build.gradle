@@ -7,7 +7,7 @@ android {
 	compileSdk 30
 
 	defaultConfig {
-		applicationId "com.example.planets"
+		applicationId "ru.shreks.planets"
 		minSdk 23
 		targetSdk 30
 		versionCode 1

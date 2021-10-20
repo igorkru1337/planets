@@ -1,4 +1,4 @@
-package com.example.planets
+package ru.shreks.planets
 
 import android.content.Context
 import android.opengl.GLSurfaceView

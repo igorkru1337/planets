@@ -1,14 +1,10 @@
-package com.example.planets
+package ru.shreks.planets
 
-import androidx.appcompat.app.AppCompatActivity
+import android.opengl.GLSurfaceView
 import android.os.Bundle
 import android.view.Window
-import android.view.WindowInsetsController
 import android.view.WindowManager
-import android.opengl.GLSurfaceView
-
-
-
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 		requestWindowFeature(Window.FEATURE_NO_TITLE)
 		window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 		glSurfaceView = GLSurfaceView(this)
-		glSurfaceView?.setEGLConfigChooser(8,8,8,8,16,0)
+		glSurfaceView?.setEGLConfigChooser(8, 8, 8, 8, 16, 0)
 		glSurfaceView?.setRenderer(GLRenderer(this))
 		setContentView(glSurfaceView)
 	}

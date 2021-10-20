@@ -1,12 +1,12 @@
-package com.example.planets
+package ru.shreks.planets
 
 import android.content.Context
-import javax.microedition.khronos.opengles.GL10
-import android.opengl.GLUtils
 import android.graphics.BitmapFactory
+import android.opengl.GLUtils
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
+import javax.microedition.khronos.opengles.GL10
 import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
